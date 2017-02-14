@@ -1540,6 +1540,185 @@ do $$
 
     -- END removing redundant master integrations
 
+    -- Codes for masterIntegrationGroup
+    if not exists (select 1 from "systemCodes" where code = 8000) then
+      insert into "systemCodes" ("code", "name", "group", "createdBy", "updatedBy", "createdAt", "updatedAt")
+      values (8000, 'scm', 'masterIntegrationGroup', '54188262bc4d591ba438d62a', '54188262bc4d591ba438d62a', '2016-06-01', '2016-06-01');
+    end if;
+
+    if not exists (select 1 from "systemCodes" where code = 8001) then
+      insert into "systemCodes" ("code", "name", "group", "createdBy", "updatedBy", "createdAt", "updatedAt")
+      values (8001, 'hub', 'masterIntegrationGroup', '54188262bc4d591ba438d62a', '54188262bc4d591ba438d62a', '2016-06-01', '2016-06-01');
+    end if;
+
+    if not exists (select 1 from "systemCodes" where code = 8002) then
+      insert into "systemCodes" ("code", "name", "group", "createdBy", "updatedBy", "createdAt", "updatedAt")
+      values (8002, 'notification', 'masterIntegrationGroup', '54188262bc4d591ba438d62a', '54188262bc4d591ba438d62a', '2016-06-01', '2016-06-01');
+    end if;
+
+    if not exists (select 1 from "systemCodes" where code = 8003) then
+      insert into "systemCodes" ("code", "name", "group", "createdBy", "updatedBy", "createdAt", "updatedAt")
+      values (8003, 'deploy', 'masterIntegrationGroup', '54188262bc4d591ba438d62a', '54188262bc4d591ba438d62a', '2016-06-01', '2016-06-01');
+    end if;
+
+    if not exists (select 1 from "systemCodes" where code = 8004) then
+      insert into "systemCodes" ("code", "name", "group", "createdBy", "updatedBy", "createdAt", "updatedAt")
+      values (8004, 'key', 'masterIntegrationGroup', '54188262bc4d591ba438d62a', '54188262bc4d591ba438d62a', '2016-06-01', '2016-06-01');
+    end if;
+
+    -- Insert masterIntegrationGroups
+    if exists (select 1 from information_schema.tables where table_name = 'masterIntegrationGroups') then
+
+      -- scm masterIntegrationGroups
+
+      -- ghe masterIntegrationMapping
+      if not exists (select 1 from "masterIntegrationGroups" where "masterIntegrationId" = '563347d6046d220c002a3474' and "typeCode" = 8000) then
+        insert into "masterIntegrationGroups" ("id", "masterIntegrationId", "typeCode", "createdAt", "updatedAt")
+        values (1, '563347d6046d220c002a3474', 8000, '2016-06-01', '2016-06-01');
+      end if;
+
+      -- bitbucket masterIntegrationMapping
+      if not exists (select 1 from "masterIntegrationGroups" where "masterIntegrationId" = '562dc347b84b390c0083e72e' and "typeCode" = 8000) then
+        insert into "masterIntegrationGroups" ("id", "masterIntegrationId", "typeCode", "createdAt", "updatedAt")
+        values (2, '562dc347b84b390c0083e72e', 8000, '2016-06-01', '2016-06-01');
+      end if;
+
+      -- bitbucketServer masterIntegrationMapping
+      if not exists (select 1 from "masterIntegrationGroups" where "masterIntegrationId" = '572af430ead9631100f7f64d' and "typeCode" = 8000) then
+        insert into "masterIntegrationGroups" ("id", "masterIntegrationId", "typeCode", "createdAt", "updatedAt")
+        values (3, '572af430ead9631100f7f64d', 8000, '2016-06-01', '2016-06-01');
+      end if;
+
+      -- gitlab masterIntegrationMapping
+      if not exists (select 1 from "masterIntegrationGroups" where "masterIntegrationId" = '5728e13b3d93990c000fd8e4' and "typeCode" = 8000) then
+        insert into "masterIntegrationGroups" ("id", "masterIntegrationId", "typeCode", "createdAt", "updatedAt")
+        values (4, '5728e13b3d93990c000fd8e4', 8000, '2016-06-01', '2016-06-01');
+      end if;
+
+      -- github masterIntegrationMapping
+      if not exists (select 1 from "masterIntegrationGroups" where "masterIntegrationId" = '562dc2f048095b0d00ceebcd' and "typeCode" = 8000) then
+        insert into "masterIntegrationGroups" ("id", "masterIntegrationId", "typeCode", "createdAt", "updatedAt")
+        values (5, '562dc2f048095b0d00ceebcd', 8000, '2016-06-01', '2016-06-01');
+      end if;
+
+      -- hub masterIntegrationGroups
+
+      -- artifactory masterIntegrationMapping
+      if not exists (select 1 from "masterIntegrationGroups" where "masterIntegrationId" = '57dbab5d15c59206bf4fbb51' and "typeCode" = 8001) then
+        insert into "masterIntegrationGroups" ("id", "masterIntegrationId", "typeCode", "createdAt", "updatedAt")
+        values (6, '57dbab5d15c59206bf4fbb51', 8001, '2016-06-01', '2016-06-01');
+      end if;
+
+      -- Docker masterIntegrationMapping
+      if not exists (select 1 from "masterIntegrationGroups" where "masterIntegrationId" = '5553a7ac3566980c00a3bf0e' and "typeCode" = 8001) then
+        insert into "masterIntegrationGroups" ("id", "masterIntegrationId", "typeCode", "createdAt", "updatedAt")
+        values (7, '5553a7ac3566980c00a3bf0e', 8001, '2016-06-01', '2016-06-01');
+      end if;
+
+      -- Docker Trusted Registry masterIntegrationMapping
+      if not exists (select 1 from "masterIntegrationGroups" where "masterIntegrationId" = '57110b987ed9d269c9d71ac1' and "typeCode" = 8001) then
+        insert into "masterIntegrationGroups" ("id", "masterIntegrationId", "typeCode", "createdAt", "updatedAt")
+        values (8, '57110b987ed9d269c9d71ac1', 8001, '2016-06-01', '2016-06-01');
+      end if;
+
+      -- ECR masterIntegrationMapping
+      if not exists (select 1 from "masterIntegrationGroups" where "masterIntegrationId" = '5673c6561895ca4474669507' and "typeCode" = 8001) then
+        insert into "masterIntegrationGroups" ("id", "masterIntegrationId", "typeCode", "createdAt", "updatedAt")
+        values (9, '5673c6561895ca4474669507', 8001, '2016-06-01', '2016-06-01');
+      end if;
+
+      -- GCR masterIntegrationMapping
+      if not exists (select 1 from "masterIntegrationGroups" where "masterIntegrationId" = '5553a8333566980c00a3bf1b' and "typeCode" = 8001) then
+        insert into "masterIntegrationGroups" ("id", "masterIntegrationId", "typeCode", "createdAt", "updatedAt")
+        values (10, '5553a8333566980c00a3bf1b', 8001, '2016-06-01', '2016-06-01');
+      end if;
+
+      -- Quay.io masterIntegrationMapping
+      if not exists (select 1 from "masterIntegrationGroups" where "masterIntegrationId" = '559eab320a31140d00a15d3a' and "typeCode" = 8001) then
+        insert into "masterIntegrationGroups" ("id", "masterIntegrationId", "typeCode", "createdAt", "updatedAt")
+        values (11, '559eab320a31140d00a15d3a', 8001, '2016-06-01', '2016-06-01');
+      end if;
+
+      -- Private Docker Registry masterIntegrationMapping
+      if not exists (select 1 from "masterIntegrationGroups" where "masterIntegrationId" = '559e8f3e90252e0c00672376' and "typeCode" = 8001) then
+        insert into "masterIntegrationGroups" ("id", "masterIntegrationId", "typeCode", "createdAt", "updatedAt")
+        values (12, '559e8f3e90252e0c00672376', 8001, '2016-06-01', '2016-06-01');
+      end if;
+
+      -- AWS masterIntegrationMapping
+      if not exists (select 1 from "masterIntegrationGroups" where "masterIntegrationId" = '55c8d2333399590c007982f8' and "typeCode" = 8001) then
+        insert into "masterIntegrationGroups" ("id", "masterIntegrationId", "typeCode", "createdAt", "updatedAt")
+        values (13, '55c8d2333399590c007982f8', 8001, '2016-06-01', '2016-06-01');
+      end if;
+
+      -- DCL masterIntegrationMapping
+      if not exists (select 1 from "masterIntegrationGroups" where "masterIntegrationId" = '570651b5f028a50b008bd955' and "typeCode" = 8001) then
+        insert into "masterIntegrationGroups" ("id", "masterIntegrationId", "typeCode", "createdAt", "updatedAt")
+        values (14, '570651b5f028a50b008bd955', 8001, '2016-06-01', '2016-06-01');
+      end if;
+
+      -- GKE masterIntegrationMapping
+      if not exists (select 1 from "masterIntegrationGroups" where "masterIntegrationId" = '56d417653270aa438861cf65' and "typeCode" = 8001) then
+        insert into "masterIntegrationGroups" ("id", "masterIntegrationId", "typeCode", "createdAt", "updatedAt")
+        values (15, '56d417653270aa438861cf65', 8001, '2016-06-01', '2016-06-01');
+      end if;
+
+      -- email masterIntegrationMapping
+      if not exists (select 1 from "masterIntegrationGroups" where "masterIntegrationId" = '55816ffb4d96360c000ec6f3' and "typeCode" = 8002) then
+        insert into "masterIntegrationGroups" ("id", "masterIntegrationId", "typeCode", "createdAt", "updatedAt")
+        values (16, '55816ffb4d96360c000ec6f3', 8002, '2016-06-01', '2016-06-01');
+      end if;
+
+      -- hipchat masterIntegrationMapping
+      if not exists (select 1 from "masterIntegrationGroups" where "masterIntegrationId" = '56fb978f1cc7210f00bd5e72' and "typeCode" = 8002) then
+        insert into "masterIntegrationGroups" ("id", "masterIntegrationId", "typeCode", "createdAt", "updatedAt")
+        values (17, '56fb978f1cc7210f00bd5e72', 8002, '2016-06-01', '2016-06-01');
+      end if;
+
+      -- irc masterIntegrationMapping
+      if not exists (select 1 from "masterIntegrationGroups" where "masterIntegrationId" = '57e8ea9c14d3ef88e56fecb6' and "typeCode" = 8002) then
+        insert into "masterIntegrationGroups" ("id", "masterIntegrationId", "typeCode", "createdAt", "updatedAt")
+        values (18, '57e8ea9c14d3ef88e56fecb6', 8002, '2016-06-01', '2016-06-01');
+      end if;
+
+      -- slack masterIntegrationMapping
+      if not exists (select 1 from "masterIntegrationGroups" where "masterIntegrationId" = '55bba7932c6c780b00e4426c' and "typeCode" = 8002) then
+        insert into "masterIntegrationGroups" ("id", "masterIntegrationId", "typeCode", "createdAt", "updatedAt")
+        values (19, '55bba7932c6c780b00e4426c', 8002, '2016-06-01', '2016-06-01');
+      end if;
+
+      -- webhook masterIntegrationMapping
+      if not exists (select 1 from "masterIntegrationGroups" where "masterIntegrationId" = '573aab7c5419f10f00bef322' and "typeCode" = 8002) then
+        insert into "masterIntegrationGroups" ("id", "masterIntegrationId", "typeCode", "createdAt", "updatedAt")
+        values (20, '573aab7c5419f10f00bef322', 8002, '2016-06-01', '2016-06-01');
+      end if;
+
+      -- AWS masterIntegrationMapping
+      if not exists (select 1 from "masterIntegrationGroups" where "masterIntegrationId" = '55c8d2333399590c007982f8' and "typeCode" = 8003) then
+        insert into "masterIntegrationGroups" ("id", "masterIntegrationId", "typeCode", "createdAt", "updatedAt")
+        values (21, '55c8d2333399590c007982f8', 8003, '2016-06-01', '2016-06-01');
+      end if;
+
+      -- ECR masterIntegrationMapping
+      if not exists (select 1 from "masterIntegrationGroups" where "masterIntegrationId" = '5673c6561895ca4474669507' and "typeCode" = 8003) then
+        insert into "masterIntegrationGroups" ("id", "masterIntegrationId", "typeCode", "createdAt", "updatedAt")
+        values (22, '5673c6561895ca4474669507', 8003, '2016-06-01', '2016-06-01');
+      end if;
+
+      -- ssh-key masterIntegrationMapping
+      if not exists (select 1 from "masterIntegrationGroups" where "masterIntegrationId" = '568aa7c3368a090c006da702' and "typeCode" = 8004) then
+        insert into "masterIntegrationGroups" ("id", "masterIntegrationId", "typeCode", "createdAt", "updatedAt")
+        values (23, '568aa7c3368a090c006da702', 8004, '2016-06-01', '2016-06-01');
+      end if;
+
+      -- pem-key masterIntegrationMapping
+      if not exists (select 1 from "masterIntegrationGroups" where "masterIntegrationId" = '568aa74cd43b0d0c004fec91' and "typeCode" = 8004) then
+        insert into "masterIntegrationGroups" ("id", "masterIntegrationId", "typeCode", "createdAt", "updatedAt")
+        values (24, '568aa74cd43b0d0c004fec91', 8004, '2016-06-01', '2016-06-01');
+      end if;
+
+    end if;
+
     -- Drop masterIntegration dependency from providers
 
     if exists (select 1 from pg_constraint where conname = 'providers_masterIntegrationId_fkey') then
@@ -3954,10 +4133,10 @@ do $$
       roleCode := 6060
     );
 
-    -- set masterIntegrationTypeCodes routeRoles
+    -- set masterIntegrationGroups routeRoles
 
     perform set_route_role(
-      routePattern := '/masterIntegrationTypeCodes',
+      routePattern := '/masterIntegrationGroups',
       httpVerb := 'GET',
       roleCode := 6040
     );
